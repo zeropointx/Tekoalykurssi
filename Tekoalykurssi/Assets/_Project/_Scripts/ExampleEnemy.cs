@@ -12,6 +12,10 @@ public class ExampleEnemy : MonoBehaviour {
 	void Update () {
 	if(Vector3.Distance(transform.position,player.position) > 2.0f)
     {
+        Quaternion tempRot = Quaternion.LookRotation(player.position-transform.position);
+        tempRot.x = 0;
+        tempRot.z = 0;
+        transform.rotation = tempRot;
         this.transform.position += (player.position - transform.position).normalized * Time.deltaTime;
     }
 	}
