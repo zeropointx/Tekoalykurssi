@@ -81,6 +81,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
+
+			if (Input.GetButtonUp ("Fire1"))
+			{
+				Debug.Log("Painetaan Fire1.");
+				
+				Transform characterTransform = this.GetComponent<Transform>(); // Hahmon transformista lasketaan nyrkin lokaatio.
+				Vector3 fistSpawn = characterTransform.position; // Nyrkin pitäisi atm spawnata keskeltä hahmoa?
+				
+				Instantiate (Resources.Load ("Fist"));
+			}
+
         }
 
 
